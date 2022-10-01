@@ -55,7 +55,7 @@ const busElements = busJson.map(bus => {
     return (
       <MapContainer center={[centerPosition.lat, centerPosition.long]} zoom={12}scrollWheelZoom={false}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      
       />
       {busElements}
       </MapContainer>
