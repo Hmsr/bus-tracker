@@ -1,6 +1,17 @@
 import React from 'react'
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet';
 
+const busIcon = new L.Icon({
+    iconUrl: require('../static/busicon.png'),
+    
+        shadowSize:   [50, 64],
+        
+        shadowAnchor: [4, 62],
+        popupAnchor:  [0, 0],
+    iconSize: new L.Point(20, 20),
+    
+});
 
 
 export default function Map(props) {
@@ -28,7 +39,10 @@ export default function Map(props) {
 
 const busElements = busJson.map(bus => {
   return (<div>
-    <Marker position={[bus.lat, bus.long]}>
+    <Marker 
+      position={[bus.lat, bus.long]}
+      icon={ busIcon }
+    >
     <Popup>
        Bus ID: {bus.busId} <br /> Bus ETA: {bus.eta}
       </Popup>
