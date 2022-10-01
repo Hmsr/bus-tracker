@@ -10,7 +10,7 @@ function App() {
       <header className="App-header">
         <img src="images/facey.png" className="App-logo" alt="logo" />
         <p>
-          Bus Tracker
+          Bus Tracdker
         </p>
         
       </header>
