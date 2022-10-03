@@ -1,14 +1,19 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { StyledButton,Logo } from './navComponents';
+import { StyledButton,Logo,Staff,StaffContainer,Wrap } from './navComponents';
 
-function Nav() {
+export default function Nav() {
   return (
     <>
       <Navbar bg="dark">
         <Container>
           <Logo href="#home">MT</Logo>
-          <StyledButton>Log out</StyledButton>
+          <Wrap>
+            <StaffContainer>
+              <Staff>JB</Staff> 
+            </StaffContainer>
+            <StyledButton>Log out</StyledButton>
+          </Wrap>
         </Container>
       </Navbar>
       <br />
@@ -17,4 +22,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+ 
