@@ -25,6 +25,8 @@ function App() {
     ]  
   );
 
+  
+
   const busPins = busJson.map(bus => {
     return (<div>
       <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta}/>
@@ -32,7 +34,8 @@ function App() {
     )
   }
   )
-
+  
+  
 
   return (
     <div className="App">
