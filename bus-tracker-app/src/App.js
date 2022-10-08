@@ -4,6 +4,7 @@ import Nav from "./components/navbar/Nav.js"
 import Map from "./components/Map.js"
 import Pin from "./components/Pin.js"
 import Card from "./components/Card.js"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
 
   const busPins = busJson.map(bus => {
     return (<div>
-      <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta}/>
+      <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta} key={bus.id}/>
       </div>
     )
   }
@@ -48,7 +49,7 @@ function App() {
   const busCards = busJson.map(bus => {
     return (
     <div>
-      <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location}/>
+      <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location} key={bus.id}/>
     </div>)
   })
   
