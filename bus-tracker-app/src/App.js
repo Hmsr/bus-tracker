@@ -22,7 +22,7 @@ function App() {
       lat: -37.812717725, 
       long: 144.956312785, 
       eta: '0:0:33',
-      route: "City Loop",
+      route: "Craigeburn",
       location: "City",
       occupancy: "Empty"},
     { busId: 3333, 
@@ -30,7 +30,7 @@ function App() {
       lat: -37.82717725, 
       long: 144.956312785, 
       eta: '0:3:40',
-      route: "City Loop",
+      route: "Bla Bla route",
       location: "City",
       occupancy: "Quite busy"}  
     ]  
