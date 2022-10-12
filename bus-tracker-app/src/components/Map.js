@@ -6,6 +6,7 @@ import Pin from "./Pin.js"
 
 
 
+
 export default function Map(props) {
   const [centerPosition, setCenterPosition] = React.useState(
     {lat: -37.8068717725, long: 144.970312785}
@@ -17,6 +18,7 @@ export default function Map(props) {
   const jewellStation = [-37.775090, 144.958823];
   const royalParkStation = [-37.781433, 144.951768];
   const flemingtonBridgeStation = [-37.788122, 144.939145];
+
   const line1 = [
     coburgStation,
     morelandStation,
@@ -27,11 +29,11 @@ export default function Map(props) {
     flemingtonBridgeStation
   ];
 
-
     return (
       <MapContainer center={[centerPosition.lat, centerPosition.long]} zoom={12}scrollWheelZoom={false}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
       />
       
       <Polyline positions={line1} color="red" />
