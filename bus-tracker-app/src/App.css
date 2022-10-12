@@ -1,10 +1,12 @@
 .App {
   text-align: center;
 }
+.App-navbar-e{
+  z-index: 1;
+}
+.navbar-expand {
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  z-index: 1;
 }
 
 @media (prefers-reduced-motion: no-preference) {

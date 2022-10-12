@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 import { StyledButton,Logo,Staff,StaffContainer,Wrap } from './navComponents';
 
 export default function Nav() {
@@ -12,7 +13,7 @@ export default function Nav() {
             <StaffContainer>
               <Staff>JB</Staff> 
             </StaffContainer>
-            <StyledButton>Log out</StyledButton>
+            <Link to="/login"><StyledButton>Log out</StyledButton></Link>
           </Wrap>
         </Container>
       </Navbar>
