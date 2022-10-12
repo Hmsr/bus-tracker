@@ -4,6 +4,7 @@ import Nav from "../components/navbar/Nav.js"
 import Map from "../components/Map.js"
 import Pin from "../components/Pin.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from "react-bootstrap";
 export function Home() { 
     const [busJson, setBusJson] = React.useState([
         { busId: 1111, 
@@ -39,7 +40,7 @@ export function Home() {
       return (
         <div className="App">
           <Nav />
-          <Map pins={busPins} />
+              <Map pins={busPins} />
         </div>
       );
 }
