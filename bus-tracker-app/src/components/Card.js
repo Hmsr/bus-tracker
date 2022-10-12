@@ -4,7 +4,7 @@ import '../App.css';
 import Details from "./Details.js"
 export default function Card(props){
     const [clicked, setClicked] = React.useState(false)
-
+    
     function handleClick() {
         setClicked(prevClicked => !prevClicked)
         console.log(clicked);
