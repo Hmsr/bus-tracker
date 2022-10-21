@@ -5,7 +5,7 @@ import Map from "../components/Map.js"
 import Pin from "../components/Pin.js"
 import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import StationSelect from "../components/StationSelect.js"
 export function Home() { 
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
@@ -35,7 +35,7 @@ export function Home() {
     ]  
   );
     
-      
+  const    
     
       const busPins = busJson.map(bus => {
         return (<div>
@@ -54,8 +54,10 @@ export function Home() {
     
       return (
         <div className="App">
+
           <Nav />
-          <Map pins={busPins} />
+          <StationSelect stationList ="fff"/>
+          {/* <Map pins={busPins} /> */}
           <div className="cardsList">
           {busCards}
           </div>

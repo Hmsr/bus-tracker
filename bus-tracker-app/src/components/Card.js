@@ -12,7 +12,7 @@ export default function Card(props){
     
     return (
         <div>
-            {clicked == true ? <Details route={props.route}/> : ''}
+            {/* {clicked == true ? <Details route={props.route}/> : ''} */}
         <div className="card" onClick={handleClick}>
             
             <p>Route: {props.route}</p>
