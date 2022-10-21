@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../App.css';
 import Nav from "../components/navbar/Nav.js"
 import Map from "../components/Map.js"
 import Pin from "../components/Pin.js"
 import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import StationSelect from "../components/StationSelect.js"
+import Details from "../components/Details.js"
+
 
 export function Home() { 
+  
+
+  const [stationList, setStationList] = React.useState([]);
+  const [selectedStation, setSelectedStation] = React.useState();
+  const [selectedBus, setSelectedBus] = React.useState();
+
+
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
       driverName: "Terry", 
@@ -21,7 +31,7 @@ export function Home() {
       lat: -37.812717725, 
       long: 144.956312785, 
       eta: '0:0:33',
-      route: "City Loop",
+      route: "Routey Rout",
       location: "City",
       occupancy: "Empty"},
     { busId: 3333, 
@@ -29,38 +39,58 @@ export function Home() {
       lat: -37.82717725, 
       long: 144.956312785, 
       eta: '0:3:40',
-      route: "City Loop",
+      route: "Route 1",
       location: "City",
       occupancy: "Quite busy"}  
     ]  
   );
-    
       
+  useEffect(() => {
+    getStationList();
+  }, []);
+
+  const getStationList = () => {
+    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`)
+    .then(res => res.json())
+    .then(response => {
+      setStationList(response);      
+    });
+  }
+
+  const selectStation = (stationID) => {
+    setSelectedStation(stationID);
+    console.log(stationID)
+  }
+
+  const [clicked, setClicked] = React.useState(false)
+
+  function handleClick(bus) {
+    setClicked(prevClicked => !prevClicked)
+    setSelectedBus(bus);
+    console.log(bus);
+}
     
-      const busPins = busJson.map(bus => {
-        return (<div>
-          <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta} key={bus.id}/>          </div>
-        )
-      }
-      )
-      
-      const busCards = busJson.map(bus => {
-        return (
-        <div>
-          <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location}/>
-          <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location} key={bus.id}/>
-        </div>)
-      })
-    
-      return (
-        <div className="App">
-          <Nav />
-          <Map pins={busPins} />
-          <div className="cardsList">
-          {busCards}
-          </div>
-        </div>
-      );
+  const busCards = busJson.map(bus => {
+    return (
+      <div>
+        <Card bus={bus} toggleDetails={handleClick}/>
+      </div>
+    )
+  })
+
+
+
+  return (
+    <div className="App">
+      {clicked == true ? <Details bus={selectedBus} /> : ''}
+      <Nav />
+      <StationSelect stationList={stationList} setStation={selectStation}/>
+      {/* <Map pins={busPins} /> */}
+      <div className="cardsList">
+        {busCards}
+      </div>
+    </div>
+  );
 }
 
 export default Home
