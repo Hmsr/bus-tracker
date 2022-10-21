@@ -12,6 +12,7 @@ export function Home() {
   
 
   const [stationList, setStationList] = React.useState([]);
+  const [selectedStation, setSelectedStation] = React.useState();
 
 
   const [busJson, setBusJson] = React.useState([
@@ -56,6 +57,11 @@ export function Home() {
       setStationList(response);      
     });
   }
+
+  const selectStation = (stationID) => {
+    setSelectedStation(stationID);
+    console.log(stationID)
+  }
     
       
       
@@ -71,7 +77,7 @@ export function Home() {
         <div className="App">
 
           <Nav />
-          <StationSelect stationList={stationList} />
+          <StationSelect stationList={stationList} setStation={selectStation}/>
           {/* <Map pins={busPins} /> */}
           <div className="cardsList">
           {busCards}
