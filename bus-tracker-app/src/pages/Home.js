@@ -42,10 +42,7 @@ export function Home() {
       occupancy: "Quite busy"}  
     ]  
   );
-  
-
-  // const stationList = [{"stationID":1041,"name":"Clifton Hill Station","latitude":-37.7886543,"longitude":144.995422},{"stationID":1045,"name":"Cranbourne Station","latitude":-38.09954,"longitude":145.2806},{"stationID":1049,"name":"Dandenong Station","latitude":-37.9899673,"longitude":145.209732},{"stationID":1208,"name":"Westall Station","latitude":-37.93849,"longitude":145.13884},{"stationID":1228,"name":"Mernda Station","latitude":-37.60255,"longitude":145.100876}];
-    
+      
   useEffect(() => {
     getStationList();
   }, []);
