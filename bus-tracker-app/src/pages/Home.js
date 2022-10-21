@@ -60,27 +60,26 @@ export function Home() {
     console.log(stationID)
   }
     
-      
-      
-      const busCards = busJson.map(bus => {
-        return (
-        <div>
-          <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location}/>
-          <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location} key={bus.id}/>
-        </div>)
-      })
-    
-      return (
-        <div className="App">
+  const busCards = busJson.map(bus => {
+    return (
+      <div>
+        <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location}/>
+        <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location} key={bus.id}/>
+      </div>
+    )
+  })
 
-          <Nav />
-          <StationSelect stationList={stationList} setStation={selectStation}/>
-          {/* <Map pins={busPins} /> */}
-          <div className="cardsList">
-          {busCards}
-          </div>
-        </div>
-      );
+  return (
+    <div className="App">
+
+      <Nav />
+      <StationSelect stationList={stationList} setStation={selectStation}/>
+      {/* <Map pins={busPins} /> */}
+      <div className="cardsList">
+        {busCards}
+      </div>
+    </div>
+  );
 }
 
 export default Home
