@@ -9,15 +9,9 @@ import StationSelect from "../components/StationSelect.js"
 
 
 export function Home() { 
-  useEffect(() => {
-    getData();
-  }, []);
+  
 
-  const getData = () => {
-    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`).then(response => {
-      console.log(response.json());
-    });
-  }
+  const [stationList, setStationList] = React.useState([]);
 
 
   const [busJson, setBusJson] = React.useState([
@@ -47,10 +41,21 @@ export function Home() {
       occupancy: "Quite busy"}  
     ]  
   );
+  
 
-  const stationList = [{"stationID":1041,"name":"Clifton Hill Station","latitude":-37.7886543,"longitude":144.995422},{"stationID":1045,"name":"Cranbourne Station","latitude":-38.09954,"longitude":145.2806},{"stationID":1049,"name":"Dandenong Station","latitude":-37.9899673,"longitude":145.209732},{"stationID":1208,"name":"Westall Station","latitude":-37.93849,"longitude":145.13884},{"stationID":1228,"name":"Mernda Station","latitude":-37.60255,"longitude":145.100876}];
+  // const stationList = [{"stationID":1041,"name":"Clifton Hill Station","latitude":-37.7886543,"longitude":144.995422},{"stationID":1045,"name":"Cranbourne Station","latitude":-38.09954,"longitude":145.2806},{"stationID":1049,"name":"Dandenong Station","latitude":-37.9899673,"longitude":145.209732},{"stationID":1208,"name":"Westall Station","latitude":-37.93849,"longitude":145.13884},{"stationID":1228,"name":"Mernda Station","latitude":-37.60255,"longitude":145.100876}];
     
-     
+  useEffect(() => {
+    getStationList();
+  }, []);
+
+  const getStationList = () => {
+    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`)
+    .then(res => res.json())
+    .then(response => {
+      setStationList(response);      
+    });
+  }
     
       
       
@@ -66,7 +71,7 @@ export function Home() {
         <div className="App">
 
           <Nav />
-          <StationSelect stationList={} />
+          <StationSelect stationList={stationList} />
           {/* <Map pins={busPins} /> */}
           <div className="cardsList">
           {busCards}
