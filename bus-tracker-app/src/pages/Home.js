@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../App.css';
 import Nav from "../components/navbar/Nav.js"
 import Map from "../components/Map.js"
@@ -6,7 +6,20 @@ import Pin from "../components/Pin.js"
 import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
+
+
 export function Home() { 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`).then(response => {
+      console.log(response.json());
+    });
+  }
+
+
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
       driverName: "Terry", 
@@ -37,14 +50,9 @@ export function Home() {
 
   const stationList = [{"stationID":1041,"name":"Clifton Hill Station","latitude":-37.7886543,"longitude":144.995422},{"stationID":1045,"name":"Cranbourne Station","latitude":-38.09954,"longitude":145.2806},{"stationID":1049,"name":"Dandenong Station","latitude":-37.9899673,"longitude":145.209732},{"stationID":1208,"name":"Westall Station","latitude":-37.93849,"longitude":145.13884},{"stationID":1228,"name":"Mernda Station","latitude":-37.60255,"longitude":145.100876}];
     
-      
+     
     
-      const busPins = busJson.map(bus => {
-        return (<div>
-          <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta} key={bus.id}/>          </div>
-        )
-      }
-      )
+      
       
       const busCards = busJson.map(bus => {
         return (
