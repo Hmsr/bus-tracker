@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../App.css';
 import Nav from "../components/navbar/Nav.js"
 import Map from "../components/Map.js"
@@ -6,7 +6,20 @@ import Pin from "../components/Pin.js"
 import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
+
+
 export function Home() { 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`).then(response => {
+      console.log(response.json());
+    });
+  }
+
+
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
       driverName: "Terry", 
@@ -37,12 +50,7 @@ export function Home() {
     
      
     
-      const busPins = busJson.map(bus => {
-        return (<div>
-          <Pin lat={bus.lat} long={bus.long} busId={bus.busId} eta={bus.eta} key={bus.id}/>          </div>
-        )
-      }
-      )
+      
       
       const busCards = busJson.map(bus => {
         return (
