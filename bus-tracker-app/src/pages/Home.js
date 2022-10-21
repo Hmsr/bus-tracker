@@ -12,7 +12,7 @@ export function Home() {
   
 
   const [stationList, setStationList] = React.useState([]);
-  const [selectedStation, setSelectedStation] = React.useState();
+  const [selectedStation, setSelectedStation] = React.useState(1041);
 
 
   const [busJson, setBusJson] = React.useState([
@@ -57,7 +57,8 @@ export function Home() {
 
   const selectStation = (stationID) => {
     setSelectedStation(stationID);
-    console.log(stationID)
+    // fetchDisruptionRoute
+    // fetchAllBuses
   }
     
   const busCards = busJson.map(bus => {
