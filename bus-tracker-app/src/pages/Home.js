@@ -11,11 +11,10 @@ import Details from "../components/Details.js"
 
 export function Home() { 
   
-
   const [stationList, setStationList] = React.useState([]);
   const [selectedStation, setSelectedStation] = React.useState(1041);
   const [selectedBus, setSelectedBus] = React.useState();
-
+  const [clicked, setClicked] = React.useState(false)
 
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
@@ -63,13 +62,14 @@ export function Home() {
     // fetchAllBuses
   }
 
-  const [clicked, setClicked] = React.useState(false)
 
   function handleClick(bus) {
-    setClicked(prevClicked => !prevClicked)
-    setSelectedBus(bus);
-    console.log(bus);
-}
+    if(selectedBus && selectedBus !== undefined && selectedBus.busId === bus.busId){
+      setSelectedBus(null);
+    } else {
+      setSelectedBus(bus);
+    }
+  }
     
   const busCards = busJson.map(bus => {
     return (
@@ -79,11 +79,9 @@ export function Home() {
     )
   })
 
-
-
   return (
     <div className="App">
-      {clicked == true ? <Details bus={selectedBus} /> : ''}
+      {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} /> : ''}
       <Nav />
       <StationSelect stationList={stationList} setStation={selectStation}/>
       {/* <Map pins={busPins} /> */}
