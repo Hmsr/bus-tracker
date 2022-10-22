@@ -25,7 +25,7 @@ export function Home() {
       eta: '0:0:10',
       route: "City Loop",
       location: "City",
-      occupancy: "busy"}, 
+      occupancy: "Full"}, 
     { busId: 2222, 
       driverName: "Eliza", 
       lat: -37.812717725, 
@@ -41,7 +41,7 @@ export function Home() {
       eta: '0:3:40',
       route: "Route 1",
       location: "City",
-      occupancy: "Quite busy"}  
+      occupancy: "NearlyEmpty"}  
     ]  
   );
       
