@@ -2,13 +2,19 @@ import React from "react"
 
 export default function Details(props) {
     const [arrivedVisible, setArrivedVisible] = React.useState(true)
-
+    const [routeVisible, setRouteVisible] = React.useState(true)
     function handleArrivedClick() {
         setArrivedVisible(prevVisible => (
             !prevVisible)
         )
         props.busArrived(true);
     }
+    function handleRouteClick() {
+      setRouteVisible(prevVisible => (
+          !prevVisible)
+      )
+      ;
+  }
 
     function handleDepartedClick() {
       props.processBusDeparture();
@@ -34,13 +40,31 @@ export default function Details(props) {
         setOccupancy(e.target.value);
         
      }
+    console.log(props.stationList);
+    const routeList = props.stationList.map(station => {
+      return (
+       <div >
+      <input id={station.stationID}type="checkbox" name={station.name} value={station.stationID} label={station.name}/>
+      <label for={station.stationID}>{station.name}</label>
+      </div> 
+      )
+    }
+    )
+
+
+
     return (
-      
-    
     <div className="card--details">
     <img className="details--icon" src={`images/${busIcon}`}  />
     <p>BusID: {props.bus.busId}</p>
     <p>Route: {props.bus.route}</p>
+    {routeVisible ? <button className="details--button" onClick={handleRouteClick} >Change Route</button> : <div> <div className="routeChangeList">
+      <form>{routeList}</form>
+       
+       </div>
+       <button className="details--button">Submit Route</button>
+       </div>}
+    
     <p>ETA: {props.bus.eta}</p>
     <p>Occupancy: {props.bus.occupancy}</p>
     <p>Current Location : {props.bus.location}</p>
