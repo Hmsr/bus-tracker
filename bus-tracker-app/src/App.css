@@ -63,7 +63,7 @@
 
 .cardsList {
   background-color: rgb(188, 188, 188); 
-  height:80vh;
+  height:70vh;
   overflow-y: scroll;
   margin-bottom:10px;
 }
