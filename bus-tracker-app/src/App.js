@@ -7,12 +7,14 @@ import Pin from "./components/Pin.js"
 import 'bootstrap/dist/css/bootstrap.min.css'; */
 import LoginPage from "./pages/LoginPage";
 import Home from "./pages/Home"
+import SelectPage from "./pages/SelectPage"
 function App() {
   return (
     <Router>
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/login' element={<LoginPage />} /> 
+        <Route path='/login' element={<LoginPage />} /> 
+        <Route path='/login/select' element={<SelectPage />} />
     </Routes>
   </Router>
   )

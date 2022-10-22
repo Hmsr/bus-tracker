@@ -6,6 +6,7 @@ import Pin from "../components/Pin.js"
 import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
+import Details from "../components/Details.js"
 
 
 export function Home() { 
@@ -13,6 +14,7 @@ export function Home() {
 
   const [stationList, setStationList] = React.useState([]);
   const [selectedStation, setSelectedStation] = React.useState(1041);
+  const [selectedBus, setSelectedBus] = React.useState();
 
 
   const [busJson, setBusJson] = React.useState([
@@ -29,7 +31,7 @@ export function Home() {
       lat: -37.812717725, 
       long: 144.956312785, 
       eta: '0:0:33',
-      route: "City Loop",
+      route: "Routey Rout",
       location: "City",
       occupancy: "Empty"},
     { busId: 3333, 
@@ -37,7 +39,7 @@ export function Home() {
       lat: -37.82717725, 
       long: 144.956312785, 
       eta: '0:3:40',
-      route: "City Loop",
+      route: "Route 1",
       location: "City",
       occupancy: "Quite busy"}  
     ]  
@@ -60,19 +62,28 @@ export function Home() {
     // fetchDisruptionRoute
     // fetchAllBuses
   }
+
+  const [clicked, setClicked] = React.useState(false)
+
+  function handleClick(bus) {
+    setClicked(prevClicked => !prevClicked)
+    setSelectedBus(bus);
+    console.log(bus);
+}
     
   const busCards = busJson.map(bus => {
     return (
       <div>
-        <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location}/>
-        <Card route={bus.route} eta={bus.eta} occupancy={bus.occupancy} location={bus.location} key={bus.id}/>
+        <Card bus={bus} toggleDetails={handleClick}/>
       </div>
     )
   })
 
+
+
   return (
     <div className="App">
-
+      {clicked == true ? <Details bus={selectedBus} /> : ''}
       <Nav />
       <StationSelect stationList={stationList} setStation={selectStation}/>
       {/* <Map pins={busPins} /> */}

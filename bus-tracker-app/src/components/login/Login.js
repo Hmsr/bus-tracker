@@ -1,5 +1,6 @@
 import { buildQueries } from '@testing-library/react'
 import React from 'react'
+import { Link, Router } from 'react-router-dom';
 import { Container, FormButton, FormContent, FormInput, FormLabel,FormWrap/* ,Icon */,Form,FormH1,Text } from './LoginElements'
 import bus  from "../../pictures/bus.jpg"
 export function Login() {
@@ -14,7 +15,7 @@ export function Login() {
                       <FormInput type='email' required />
                       <FormLabel htmlFor='for'>Password</FormLabel>
                       <FormInput type='password' required /> 
-                      <FormButton type='submit'>Continue</FormButton>
+                        <Link to='/login/select'><FormButton type='submit'>Continue</FormButton> </Link>
                        <Text>Forgot password</Text> 
                   </Form>
               </FormContent>
