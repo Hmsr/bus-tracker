@@ -46,29 +46,46 @@ export default function Details(props) {
     <p>Occupancy: {props.bus.occupancy}</p>
     <p>Current Location : {props.bus.location}</p>
     {arrivedVisible ? <button className="details--button" onClick={handleArrivedClick} >Arrived</button> : (
-        <div>
+        <div className="radiogroup">
+          
         <form>
-            <input type="radio" value="Empty" id="Empty"
+        <div className="wrapper">
+            <input className="state" type="radio" value="Empty" id="Empty"
               onChange={handleChange} name="occupancy" />
-            <label for="Empty">Empty</label>
+              <span class="text">Empty</span>
+            <label  className="label" for="Empty"></label>
+            <div class="indicator"></div>
+        </div>
+        <div className="wrapper">
+            <input className="state" type="radio" value="NearlyEmpty" id="NearlyEmpty"
+              onChange={handleChange} name="occupancy" />
+              <span class="text">Nearly Empty</span>
+            <label className="label" for="NearlyEmpty"></label>
+            <div class="indicator"></div>
+            </div>
 
-            <input type="radio" value="NearlyEmpty" id="NearlyEmpty"
+        <div className="wrapper">
+            <input className="state" type="radio" value="QuiteFull" id="QuiteFull"
               onChange={handleChange} name="occupancy" />
-            <label for="NearlyEmpty">Nearly Empty</label>
+              <span class="text">Quite Full</span>
+            <label className="label" for="QuiteFull"></label>
+            <div class="indicator"></div>
+            </div>
 
-            <input type="radio" value="QuiteFull" id="QuiteFull"
+        <div className="wrapper">
+            <input className="state" type="radio" value="Full" id="Full"
               onChange={handleChange} name="occupancy" />
-            <label for="QuiteFull">Quite Full</label>
-
-            <input type="radio" value="Full" id="Full"
-              onChange={handleChange} name="occupancy" />
-            <label for="Full">Full</label>
+              <span class="text">Full</span>
+            <label className="label" for="Full"></label>
+            <div class="indicator"></div>
+            </div>
 
            
          </form>
          <p>{occupancy}</p>
          <button className="details--button">Departed</button>
         </div>
+        
         )
         
     }
