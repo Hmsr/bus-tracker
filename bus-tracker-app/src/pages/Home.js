@@ -15,7 +15,6 @@ export function Home() {
   const [stationList, setStationList] = React.useState([]);
   const [selectedStation, setSelectedStation] = React.useState(1041);
   const [selectedBus, setSelectedBus] = React.useState();
-  const [clicked, setClicked] = React.useState(false)
 
   const [busJson, setBusJson] = React.useState([
     { busId: 1111, 
@@ -82,7 +81,6 @@ export function Home() {
       {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} /> : ''}
       <Nav />
       <StationSelect stationList={stationList} setStation={selectStation}/>
-      {/* <Map pins={busPins} /> */}
       <div className="cardsList">
         {busCards}
       </div>
