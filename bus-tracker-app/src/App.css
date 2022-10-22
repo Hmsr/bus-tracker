@@ -47,13 +47,12 @@
 
 .card {
   background-color: #ecf0f3 !important;
-  padding: 10px 10px;
+  padding: 1px 1px;
   border-radius: 16px;
   align-items: center;
   box-shadow:
     4px 4px 4px 0px #d1d9e6 inset,
     -4px -4px 4px 0px #ffffff inset;
-  
 }
 
 .card--button {
@@ -65,7 +64,7 @@
   background-color: rgb(188, 188, 188); 
   height:70vh;
   overflow-y: scroll;
-  margin-bottom:10px;
+  margin-bottom:0px;
 }
 
 .card--details {
@@ -75,10 +74,12 @@
   width: 80%;
   height: 500px;
   position: absolute;
+  overflow:hidden; 
+  overflow-y:scroll;
   top: 0;
   left:10%;
   align-items: center;
-  padding: 48px 64px;
+  padding: 10px 10px;
   border-radius: 16px;
   background: #ecf0f3;
   box-shadow:
