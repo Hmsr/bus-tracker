@@ -57,7 +57,6 @@ export function Home() {
 
   const selectStation = (stationID) => {
     setSelectedStation(stationID);
-    // fetchDisruptionRoute
     // fetchAllBuses
   }
 
