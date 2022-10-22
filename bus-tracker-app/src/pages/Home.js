@@ -15,15 +15,18 @@ export function Home() {
   const [stationList, setStationList] = React.useState([]);
   const [selectedStation, setSelectedStation] = React.useState(1041);
   const [selectedBus, setSelectedBus] = React.useState();
-  const [busJson, setBusJson] = React.useState(fetchBusList);
+  const [busJson, setBusJson] = React.useState([]);
   const [processigBusArrival, setProcessingBusArrival] = React.useState(false)    
 
   const getBuses = () => {
-    setBusJson(fetchBusList)
+    fetchBusList.then(response => {
+      setBusJson(response);
+    });
   }
 
   useEffect(() => {
     getStationList();
+    getBuses();
   }, []);
 
   const getStationList = () => {
