@@ -45,7 +45,7 @@ export default function Details(props) {
     <p>ETA: {props.bus.eta}</p>
     <p>Occupancy: {props.bus.occupancy}</p>
     <p>Current Location : {props.bus.location}</p>
-    {arrivedVisible ? <button onClick={handleArrivedClick} >Arrived</button> : (
+    {arrivedVisible ? <button className="details--button" onClick={handleArrivedClick} >Arrived</button> : (
         <div>
         <form>
             <input type="radio" value="Empty" id="Empty"
@@ -67,7 +67,7 @@ export default function Details(props) {
            
          </form>
          <p>{occupancy}</p>
-         <button>Departed</button>
+         <button className="details--button">Departed</button>
         </div>
         )
         

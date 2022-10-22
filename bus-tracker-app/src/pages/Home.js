@@ -71,8 +71,8 @@ export function Home() {
     
   const busCards = busJson.map(bus => {
     return (
-      <div>
-        <Card bus={bus} toggleDetails={handleClick}/>
+      <div >
+        <Card  bus={bus} toggleDetails={handleClick}/>
       </div>
     )
   })
