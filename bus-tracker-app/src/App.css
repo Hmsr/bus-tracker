@@ -63,7 +63,7 @@
 
 .cardsList {
   background-color: rgb(188, 188, 188); 
-  height:80vh;
+  height:70vh;
   overflow-y: scroll;
   margin-bottom:10px;
 }
@@ -73,7 +73,7 @@
   z-index: 4;
   border-radius: 5%;
   width: 80%;
-  height: 400px;
+  height: 500px;
   position: absolute;
   top: 0;
   left:10%;
@@ -130,4 +130,6 @@
   4px 4px 4px 0px #9bbdc4 
   ;
 }
+
+
 

@@ -19,7 +19,7 @@ export default function Card(props){
       } else {
         busIcon = "red.png"
       }
-    console.log(props.bus.route)
+    
     return (
         <div className="card" onClick={handleClick}>
            
