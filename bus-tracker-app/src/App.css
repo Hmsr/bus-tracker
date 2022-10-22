@@ -44,8 +44,8 @@
 }
 
 .card {
-  display: flex;
-  flex-flow: row wrap;
+  background-color: rgb(32, 150, 111);
+  
 }
 
 .card--button {
@@ -54,7 +54,7 @@
 }
 
 .cardsList {
-  
+  background-color: aquamarine; 
   height:80vh;
   overflow-y: scroll;
 }
@@ -68,8 +68,28 @@
   position: absolute;
   top: 0;
   left:10%;
-  box-shadow: 3px 5px 10px;
+  box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+  
+  background: rgb(137, 217, 217);
 
-  background: rgb(240, 240, 240);
+}
 
+.details--icon {
+  height:50px;
+  width:50px;
+  border-radius: 10px;
+  box-shadow: 20px, 10px, 10px;
+  background: rgb(0, 0, 0);
+}
+
+.card--occupancy--icon {
+  height:50px;
+  width:50px;
+  border-radius: 10px;
+  box-shadow: 20px, 10px, 10px;
+  background: rgb(0, 0, 0);
+}
+.details--button {
+  border-radius: 5px;
+  background-color: rgb(142, 237, 237);
 }
