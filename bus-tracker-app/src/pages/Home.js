@@ -7,6 +7,7 @@ import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
 import Details from "../components/Details.js"
+import { fetchStationList } from "../AppApi.js";
 
 
 export function Home() { 
@@ -49,9 +50,7 @@ export function Home() {
   }, []);
 
   const getStationList = () => {
-    const response = fetch(`https://stationslist.azurewebsites.net/api/Stations`)
-    .then(res => res.json())
-    .then(response => {
+    fetchStationList.then(response => {
       setStationList(response);      
     });
   }
