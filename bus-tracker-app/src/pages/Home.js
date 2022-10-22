@@ -7,7 +7,7 @@ import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
 import Details from "../components/Details.js"
-import { fetchStationList } from "../AppApi.js";
+import { fetchBusList, fetchStationList } from "../AppApi.js";
 
 
 export function Home() { 
@@ -15,35 +15,12 @@ export function Home() {
   const [stationList, setStationList] = React.useState([]);
   const [selectedStation, setSelectedStation] = React.useState(1041);
   const [selectedBus, setSelectedBus] = React.useState();
-
-  const [busJson, setBusJson] = React.useState([
-    { busId: 1111, 
-      driverName: "Terry", 
-      lat: -37.8068717725, 
-      long: 144.970312785, 
-      eta: '0:0:10',
-      route: "City Loop",
-      location: "City",
-      occupancy: "Full"}, 
-    { busId: 2222, 
-      driverName: "Eliza", 
-      lat: -37.812717725, 
-      long: 144.956312785, 
-      eta: '0:0:33',
-      route: "Routey Rout",
-      location: "City",
-      occupancy: "Empty"},
-    { busId: 3333, 
-      driverName: "Eric", 
-      lat: -37.82717725, 
-      long: 144.956312785, 
-      eta: '0:3:40',
-      route: "Route 1",
-      location: "City",
-      occupancy: "NearlyEmpty"}  
-    ]  
-  );
+  const [busJson, setBusJson] = React.useState(fetchBusList);
       
+  const getBuses = () => {
+    setBusJson(fetchBusList)
+  }
+
   useEffect(() => {
     getStationList();
   }, []);
@@ -56,7 +33,7 @@ export function Home() {
 
   const selectStation = (stationID) => {
     setSelectedStation(stationID);
-    // fetchAllBuses
+    getBuses();
   }
 
 
