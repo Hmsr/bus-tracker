@@ -13,8 +13,8 @@ export default function StationSelect(props) {
     })
 
     return (
-        <div>
-            <select name="stations" id="stations" onChange={handleChange}>
+        <div >
+            <select className="stationSelect" name="stations" id="stations" onChange={handleChange}>
                 {stationList}
             </select>
         </div>

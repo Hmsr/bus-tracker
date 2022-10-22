@@ -120,13 +120,14 @@
   background-color: rgb(142, 237, 237);
 }
 
-.radiogroup {
-  padding: 10px 10px;
-  border-radius: 16px;
-  background: #ecf0f3;
-  align-content: left;
+.stationSelect {
+  border-radius: 4px;
+  height: 30px;
+  margin:10px;
   box-shadow:
-    4px 4px 4px 0px #d1d9e6 inset,
-    -4px -4px 4px 0px #ffffff inset;
+  4px 4px 4px 0px #d1d9e6 inset,
+  -4px -4px 4px 0px #ffffff inset,
+  4px 4px 4px 0px #9bbdc4 
+  ;
 }
 
