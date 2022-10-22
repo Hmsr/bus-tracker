@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgb(218, 216, 216); 
+  
 }
 .App-navbar-e{
   z-index: 1;
@@ -44,19 +46,26 @@
 }
 
 .card {
-  background-color: rgb(32, 150, 111);
+  background-color: #ecf0f3 !important;
+  padding: 10px 10px;
+  border-radius: 16px;
+  align-items: center;
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset;
   
 }
 
 .card--button {
   width: 10%;
-  background-color: red;
+  background-color: rgb(213, 213, 213);
 }
 
 .cardsList {
-  background-color: aquamarine; 
+  background-color: rgb(188, 188, 188); 
   height:80vh;
   overflow-y: scroll;
+  margin-bottom:10px;
 }
 
 .card--details {
@@ -64,32 +73,60 @@
   z-index: 4;
   border-radius: 5%;
   width: 80%;
-  height: 300px;
+  height: 400px;
   position: absolute;
   top: 0;
   left:10%;
-  box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
-  
-  background: rgb(137, 217, 217);
+  align-items: center;
+  padding: 48px 64px;
+  border-radius: 16px;
+  background: #ecf0f3;
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset;
 
 }
 
 .details--icon {
-  height:50px;
-  width:50px;
+  height:60px;
+  width:60px;
+  padding:10px;
   border-radius: 10px;
-  box-shadow: 20px, 10px, 10px;
+  align-self: center !important;
   background: rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset,
+    4px 4px 10px 0px #9bbdc4 
+    ;
+    background: rgb(0, 0, 0);
 }
 
 .card--occupancy--icon {
-  height:50px;
-  width:50px;
+  height:60px;
+  width:60px;
+  padding:10px;
   border-radius: 10px;
-  box-shadow: 20px, 10px, 10px;
-  background: rgb(0, 0, 0);
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 10px 0px #ffffff inset,
+    4px 4px 10px 0px #9bbdc4 
+    ;
+    background: rgb(0, 0, 0);
 }
 .details--button {
   border-radius: 5px;
   background-color: rgb(142, 237, 237);
 }
+
+.radiogroup {
+  padding: 10px 10px;
+  border-radius: 16px;
+  background: #ecf0f3;
+  align-content: left;
+  box-shadow:
+    4px 4px 4px 0px #d1d9e6 inset,
+    -4px -4px 4px 0px #ffffff inset;
+}
+
