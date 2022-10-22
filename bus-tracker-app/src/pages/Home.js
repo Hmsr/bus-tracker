@@ -16,7 +16,8 @@ export function Home() {
   const [selectedStation, setSelectedStation] = React.useState(1041);
   const [selectedBus, setSelectedBus] = React.useState();
   const [busJson, setBusJson] = React.useState(fetchBusList);
-      
+  const [processigBusArrival, setProcessingBusArrival] = React.useState(false)    
+
   const getBuses = () => {
     setBusJson(fetchBusList)
   }
@@ -36,12 +37,22 @@ export function Home() {
     getBuses();
   }
 
+  const busArrived = (isProcessingArrival) => {
+    setProcessingBusArrival(isProcessingArrival);
+  }
+
+  const processBusDeparture = () => {
+    setProcessingBusArrival(false);
+    setSelectedBus(null);
+  }
 
   function handleClick(bus) {
-    if(selectedBus && selectedBus !== undefined && selectedBus.busId === bus.busId){
-      setSelectedBus(null);
-    } else {
-      setSelectedBus(bus);
+    if(!processigBusArrival){
+      if(selectedBus && selectedBus !== undefined && selectedBus.busId === bus.busId){
+        setSelectedBus(null);
+      } else {
+        setSelectedBus(bus);
+      }
     }
   }
     
@@ -55,7 +66,7 @@ export function Home() {
 
   return (
     <div className="App">
-      {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} /> : ''}
+      {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} busArrived={busArrived} processBusDeparture={processBusDeparture}/> : ''}
       <Nav />
       <StationSelect stationList={stationList} setStation={selectStation}/>
       <div className="cardsList">

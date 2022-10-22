@@ -2,11 +2,16 @@ import React from "react"
 
 export default function Details(props) {
     const [arrivedVisible, setArrivedVisible] = React.useState(true)
+
     function handleArrivedClick() {
         setArrivedVisible(prevVisible => (
             !prevVisible)
         )
-        
+        props.busArrived(true);
+    }
+
+    function handleDepartedClick() {
+      props.processBusDeparture();
     }
     
     const [occupancy, setOccupancy] = React.useState();
@@ -23,12 +28,6 @@ export default function Details(props) {
       } else {
         busIcon = "red.png"
       }
-    
-      
-    
-    
-    
-    
     
 
     const handleChange=(e)=>{
@@ -83,7 +82,7 @@ export default function Details(props) {
            
          </form>
          <p>{occupancy}</p>
-         <button className="details--button">Departed</button>
+         <button className="details--button" onClick={handleDepartedClick}>Departed</button>
         </div>
         
         )
