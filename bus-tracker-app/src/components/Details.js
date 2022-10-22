@@ -62,7 +62,7 @@ export default function Details(props) {
       <form>{routeList}</form>
        
        </div>
-       <button className="details--button">Submit Route</button>
+       <button onClick={handleRouteClick} className="details--button">Submit Route</button>
        </div>}
     
     <p>ETA: {props.bus.eta}</p>

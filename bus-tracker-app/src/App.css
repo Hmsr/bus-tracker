@@ -136,5 +136,10 @@
   height:100px;
   overflow:hidden; 
   overflow-y:scroll;
+  box-shadow:
+  4px 4px 4px 0px #d1d9e6 inset,
+  -4px -4px 4px 0px #ffffff inset,
+  4px 4px 4px 0px #9bbdc4 
+  ;
 }
 
