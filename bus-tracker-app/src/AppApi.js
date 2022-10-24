@@ -16,7 +16,7 @@ function postApi(url, content){
 }
 
 export const fetchStationList = fetchApi(`https://stationslist.azurewebsites.net/api/Stations`);
-export const fetchBusList = fetchApi(`https://incomingbuses20221022164958.azurewebsites.net/api/IncomingBuses`);
+export const fetchBusList = fetchApi(`https://incomingbuses.azurewebsites.net/api/IncomingBuses/1147`);
 export function postBusArrived(content) { postApi('', content) };
 export function postBusDeparted(content) { postApi('', content) };
 
