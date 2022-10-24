@@ -71,20 +71,22 @@
   margin-top: 130px;
   z-index: 4;
   border-radius: 5%;
-  width: 80%;
-  height: 500px;
+  left:15%;
+  
   position: absolute;
   overflow:hidden; 
   overflow-y:scroll;
   top: 0;
-  left:10%;
+  
   align-items: center;
   padding: 10px 10px;
   border-radius: 16px;
-  background: #ecf0f3;
+  background: #dadada;
   box-shadow:
-    4px 4px 4px 0px #d1d9e6 inset,
-    -4px -4px 4px 0px #ffffff inset;
+    4px 4px 4px 0px #3d3d3d inset,
+    -4px -4px 4px 0px #b4b4b4 inset,
+    4px 4px 4px 0px #181818
+    ;
 
 }
 
