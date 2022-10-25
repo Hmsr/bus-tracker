@@ -28,18 +28,21 @@ export function Home() {
     getStationList();
     getBuses(selectedStation);
 
-    const interval = setInterval(() => {
-      console.log('Logs every five seconds');
-      getBuses(selectedStation);
-    }, 5000);
-  
-    return () => clearInterval(interval); 
+    // const interval = setInterval(() => {
+    //   console.log('Logs every five seconds');
+    //   refreshBuses();
+    // }, 5000);
+    // return () => clearInterval(interval); 
   }, []);
 
   const getStationList = () => {
     fetchStationList.then(response => {
       setStationList(response);      
     });
+  }
+
+  const refreshBuses = () => {
+    getBuses(selectedStation);
   }
 
   const selectStation = (stationID) => {
