@@ -59,7 +59,7 @@ export function Home() {
 
   function handleClick(bus) {
     if(!processigBusArrival){
-      if(selectedBus && selectedBus !== undefined && selectedBus.busId === bus.busId){
+      if(selectedBus && selectedBus !== undefined && selectedBus.busID === bus.busID){
         setSelectedBus(null);
       } else {
         setSelectedBus(bus);

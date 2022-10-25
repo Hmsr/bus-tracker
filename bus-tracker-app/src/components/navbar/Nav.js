@@ -17,7 +17,6 @@ export default function Nav() {
           </Wrap>
         </Container>
       </Navbar>
-      <br />
       
     </>
   );
