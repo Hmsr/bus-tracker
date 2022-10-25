@@ -18,15 +18,14 @@ export function Home() {
   const [busJson, setBusJson] = React.useState([]);
   const [processigBusArrival, setProcessingBusArrival] = React.useState(false)    
 
-  const getBuses = () => {
-    fetchBusList.then(response => {
+  const getBuses = (stationId) => {
+    fetchBusById(stationId).then(response => {
       setBusJson(response);
     });
   }
 
   useEffect(() => {
     getStationList();
-    getBuses();
   }, []);
 
   const getStationList = () => {
@@ -37,9 +36,7 @@ export function Home() {
 
   const selectStation = (stationID) => {
     setSelectedStation(stationID);
-    fetchBusById(stationID).then(response => {
-      setBusJson(response);
-    });
+    getBuses(stationID)
   }
 
   const busArrived = (isProcessingArrival) => {
@@ -49,6 +46,7 @@ export function Home() {
   const processBusDeparture = () => {
     setProcessingBusArrival(false);
     setSelectedBus(null);
+    getBuses(selectedStation)
   }
 
   function handleClick(bus) {

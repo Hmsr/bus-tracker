@@ -27,8 +27,6 @@ export default function Details(props) {
     }
 
     function handleDepartedClick() {
-      props.processBusDeparture();
-
       let postBody = {
         "busID": props.bus.busID,
         "disruptionID": props.bus.disruptionID,
@@ -36,8 +34,9 @@ export default function Details(props) {
         "occupancy": occupancy
       };
 
-      console.log(postBody)
       postBusDeparted(postBody);
+
+      props.processBusDeparture();
     }
     
     const [occupancy, setOccupancy] = React.useState();
