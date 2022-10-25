@@ -56,8 +56,8 @@ export default function Details(props) {
     return (
     <div className="card--details">
     <img className="details--icon" src={`images/${busIcon}`}  />
-    <p>BusID: {props.bus.busId}</p>
-    <p>Route: {props.bus.route}</p>
+    <p>BusID: {props.bus.busID}</p>
+    <p>Route: {props.bus.busLine}</p>
     {routeVisible ? <button className="details--button" onClick={handleRouteClick} >Change Route</button> : <div> <div className="routeChangeList">
       <form>{routeList}</form>
        
@@ -67,7 +67,7 @@ export default function Details(props) {
     
     <p>ETA: {props.bus.eta}</p>
     <p>Occupancy: {props.bus.occupancy}</p>
-    <p>Current Location : {props.bus.location}</p>
+    <p>Current Location : {props.bus.busLastStop}</p>
     {arrivedVisible ? <button className="details--button" onClick={handleArrivedClick} >Arrived</button> : (
         <div className="radiogroup">
           
