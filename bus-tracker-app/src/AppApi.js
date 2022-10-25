@@ -18,6 +18,6 @@ function postApi(url, content){
 
 export const fetchStationList = fetchApi(`https://stationslist.azurewebsites.net/api/Stations`);
 export const fetchBusList = fetchApi(`https://incomingbuses.azurewebsites.net/api/IncomingBuses/1019`);
-export function fetchBusById(busId) { return fetchApi(`https://incomingbuses.azurewebsites.net/api/IncomingBuses/` + busId) };
+export function fetchBusByStationId(stationID) { return fetchApi(`https://incomingbuses.azurewebsites.net/api/IncomingBuses/` + stationID) };
 export function postBusArrived(content) { postApi('https://busarrived.azurewebsites.net/api/BusArriveds', content) };
 export function postBusDeparted(content) { postApi('https://busdepartured.azurewebsites.net/api/BusDepartureds', content) };

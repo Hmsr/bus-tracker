@@ -7,7 +7,7 @@ import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
 import Details from "../components/Details.js"
-import { fetchBusList, fetchStationList, fetchBusById } from "../AppApi.js";
+import { fetchBusList, fetchStationList, fetchBusByStationId } from "../AppApi.js";
 
 
 export function Home() { 
@@ -19,7 +19,7 @@ export function Home() {
   const [processigBusArrival, setProcessingBusArrival] = React.useState(false)    
 
   const getBuses = (stationId) => {
-    fetchBusById(stationId).then(response => {
+    fetchBusByStationId(stationId).then(response => {
       setBusJson(response);
     });
   }
