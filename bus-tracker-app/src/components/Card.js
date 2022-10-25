@@ -24,10 +24,10 @@ export default function Card(props){
         <div className="card" onClick={handleClick}>
            
            <img className="card--occupancy--icon" src={`images/${busIcon}`}  />
-            <p>Route: {props.bus.route}</p>
+            <p>Route: {props.bus.busLine}</p>
             <p>ETA: {props.bus.eta}</p>
             <p>Occupancy: {props.bus.occupancy}</p>
-            <p>Location: {props.bus.location}</p>
+            <p>Location: {props.bus.busLastStop}</p>
         
         </div>
     )

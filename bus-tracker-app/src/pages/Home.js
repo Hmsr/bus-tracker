@@ -7,7 +7,7 @@ import Card from "../components/Card.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import StationSelect from "../components/StationSelect.js"
 import Details from "../components/Details.js"
-import { fetchBusList, fetchStationList } from "../AppApi.js";
+import { fetchBusList, fetchStationList, fetchBusById } from "../AppApi.js";
 
 
 export function Home() { 
@@ -37,7 +37,9 @@ export function Home() {
 
   const selectStation = (stationID) => {
     setSelectedStation(stationID);
-    getBuses();
+    fetchBusById(stationID).then(response => {
+      setBusJson(response);
+    });
   }
 
   const busArrived = (isProcessingArrival) => {
