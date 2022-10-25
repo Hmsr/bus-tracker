@@ -21,16 +21,16 @@ export default function Details(props) {
     }
     
     const [occupancy, setOccupancy] = React.useState();
-
     let busIcon;
-      if (props.bus.occupancy == "Empty") { 
+      
+      if (props.bus.occupancy == 0) { 
         busIcon = "green.png"
-      } else if (props.bus.occupancy == "NearlyEmpty") {
+      } else if (props.bus.occupancy == 25) {
         busIcon = "yellow.png"
-      } else if (props.bus.occupancy == "QuiteFull") {
+      } else if (props.bus.occupancy == 50) {
         busIcon = "orange.png"
-      } else if (props.bus.occupancy == "Full") {
-        busIcon = "red.png"
+      } else if (props.bus.occupancy == 75) {
+        busIcon = "darkorange.png"
       } else {
         busIcon = "red.png"
       }
@@ -51,7 +51,7 @@ export default function Details(props) {
     }
     )
 
-
+    
 
     return (
     <div className="card--details">
