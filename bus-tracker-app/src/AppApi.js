@@ -12,7 +12,7 @@ function postApi(url, content){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: content
+        body: JSON.stringify(content)
     }).then(res => res.json());
 }
 
