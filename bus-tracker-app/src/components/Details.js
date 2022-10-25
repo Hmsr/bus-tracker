@@ -1,4 +1,5 @@
 import React from "react"
+import { postBusArrived, postBusDeparted } from "../AppApi";
 
 export default function Details(props) {
     const [arrivedVisible, setArrivedVisible] = React.useState(true)
@@ -8,16 +9,35 @@ export default function Details(props) {
             !prevVisible)
         )
         props.busArrived(true);
+
+        let postBody = {
+          "busID": props.bus.busID,
+          "disruptionID": props.bus.disruptionID,
+          "stationID": props.selectedStation
+        }
+
+        postBusArrived(postBody);
     }
+
     function handleRouteClick() {
       setRouteVisible(prevVisible => (
           !prevVisible)
       )
       ;
-  }
+    }
 
     function handleDepartedClick() {
       props.processBusDeparture();
+
+      let postBody = {
+        "busID": props.bus.busID,
+        "disruptionID": props.bus.disruptionID,
+        "stationID": props.selectedStation,
+        "occupancy": occupancy
+      };
+
+      console.log(postBody)
+      postBusDeparted(postBody);
     }
     
     const [occupancy, setOccupancy] = React.useState();
@@ -37,10 +57,9 @@ export default function Details(props) {
     
 
     const handleChange=(e)=>{
-        setOccupancy(e.target.value);
-        
+        setOccupancy(e.target.value);        
      }
-    console.log(props.stationList);
+
     const routeList = props.stationList.map(station => {
       return (
        <div >

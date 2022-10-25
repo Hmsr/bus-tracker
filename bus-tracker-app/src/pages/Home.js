@@ -71,7 +71,7 @@ export function Home() {
 
   return (
     <div className="App">
-      {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} stationList={stationList} busArrived={busArrived} processBusDeparture={processBusDeparture}/> : ''}
+      {(selectedBus && selectedBus !== undefined) ? <Details bus={selectedBus} stationList={stationList} selectedStation={selectedStation} busArrived={busArrived} processBusDeparture={processBusDeparture}/> : ''}
       <Nav />
       <StationSelect stationList={stationList} setStation={selectStation}/>
       <div className="cardsList">
