@@ -73,39 +73,42 @@ export default function Details(props) {
           
         <form>
         <div className="wrapper">
-            <input className="state" type="radio" value="Empty" id="Empty"
+            <input className="state" type="radio" value="0" id="0"
               onChange={handleChange} name="occupancy" />
-              <span class="text">Empty</span>
-            <label  className="label" for="Empty"></label>
+              <span class="text">0%</span>
             <div class="indicator"></div>
         </div>
         <div className="wrapper">
-            <input className="state" type="radio" value="NearlyEmpty" id="NearlyEmpty"
+            <input className="state" type="radio" value="25" id="25"
               onChange={handleChange} name="occupancy" />
-              <span class="text">Nearly Empty</span>
-            <label className="label" for="NearlyEmpty"></label>
+              <span class="text">25%</span>
             <div class="indicator"></div>
             </div>
 
         <div className="wrapper">
-            <input className="state" type="radio" value="QuiteFull" id="QuiteFull"
+            <input className="state" type="radio" value="50" id="50"
               onChange={handleChange} name="occupancy" />
-              <span class="text">Quite Full</span>
-            <label className="label" for="QuiteFull"></label>
+              <span class="text">50%</span>
             <div class="indicator"></div>
             </div>
 
         <div className="wrapper">
-            <input className="state" type="radio" value="Full" id="Full"
+            <input className="state" type="radio" value="75" id="75"
               onChange={handleChange} name="occupancy" />
-              <span class="text">Full</span>
-            <label className="label" for="Full"></label>
+              <span class="text">75%</span>
+            <div class="indicator"></div>
+            </div>
+
+            <div className="wrapper">
+            <input className="state" type="radio" value="100" id="100"
+              onChange={handleChange} name="occupancy" />
+              <span class="text">100%</span>
             <div class="indicator"></div>
             </div>
 
            
          </form>
-         <p>{occupancy}</p>
+        
          <button className="details--button" onClick={handleDepartedClick}>Departed</button>
         </div>
         
