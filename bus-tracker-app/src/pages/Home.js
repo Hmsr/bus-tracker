@@ -13,7 +13,7 @@ import { fetchBusList, fetchStationList, fetchBusById } from "../AppApi.js";
 export function Home() { 
   
   const [stationList, setStationList] = React.useState([]);
-  const [selectedStation, setSelectedStation] = React.useState(1041);
+  const [selectedStation, setSelectedStation] = React.useState(1019);
   const [selectedBus, setSelectedBus] = React.useState();
   const [busJson, setBusJson] = React.useState([]);
   const [processigBusArrival, setProcessingBusArrival] = React.useState(false)    
@@ -26,6 +26,7 @@ export function Home() {
 
   useEffect(() => {
     getStationList();
+    getBuses(selectedStation);
   }, []);
 
   const getStationList = () => {
