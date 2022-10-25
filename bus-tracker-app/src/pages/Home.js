@@ -27,6 +27,13 @@ export function Home() {
   useEffect(() => {
     getStationList();
     getBuses(selectedStation);
+
+    const interval = setInterval(() => {
+      console.log('Logs every five seconds');
+      getBuses(selectedStation);
+    }, 5000);
+  
+    return () => clearInterval(interval); 
   }, []);
 
   const getStationList = () => {

@@ -75,7 +75,7 @@ export default function Details(props) {
     <div className="card--details">
     <img className="details--icon" src={`images/${busIcon}`}  />
     <p>BusID: {props.bus.busID}</p>
-    <p>Route: {props.bus.busLine}</p>
+    <p>Route: {props.bus.disruptionEnd}</p>
     {routeVisible ? <button className="details--button" onClick={handleRouteClick} >Change Route</button> : <div> <div className="routeChangeList">
       <form>{routeList}</form>
        
