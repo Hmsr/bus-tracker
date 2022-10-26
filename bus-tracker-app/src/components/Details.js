@@ -2,6 +2,11 @@ import React from "react"
 import { postBusArrived, postBusDeparted } from "../AppApi";
 
 export default function Details(props) {
+  function convertTime(eta) {
+    return (
+     eta.slice(11,16)
+    )
+ }
     const [arrivedVisible, setArrivedVisible] = React.useState(true)
     const [routeVisible, setRouteVisible] = React.useState(true)
     function handleArrivedClick() {
@@ -77,7 +82,7 @@ export default function Details(props) {
     <img className="details--icon" src={`images/${busIcon}`}  />
     <p>BusID: {props.bus.busID}</p>
     <p>Occupancy: {props.bus.occupancy}%</p>    
-    <p>ETA: {props.bus.eta}</p>
+    <p>ETA: {convertTime(props.bus.eta)}</p>
     <p>Current Location : {props.bus.busLastStop}</p>
 
     <p>Route: {props.bus.disruptionEnd}</p>

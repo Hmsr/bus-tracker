@@ -19,14 +19,17 @@ export default function Card(props){
     } else {
       busIcon = "red.png"
     }
-    
+    function convertTime(eta) {
+       return (
+        eta.slice(11,16)
+       )
+    }
     return (
         <div className="card" onClick={handleClick}>
-           
            <img className="card--occupancy--icon" src={`images/${busIcon}`}  />
             <p>Bus: {props.bus.busID}</p>
             <p>Route: {props.bus.disruptionEnd}</p>
-            <p>ETA: {props.bus.eta}</p>
+            <p>ETA: {convertTime(props.bus.eta)}</p>
             <p>Occupancy: {props.bus.occupancy}%</p>
             <p>Location: {props.bus.busLastStop}</p>
         
