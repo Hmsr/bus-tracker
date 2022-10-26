@@ -22,12 +22,7 @@ export function SelectBox() {
               <OptionWrap>
                 <Select options={Options}
                 defaultValue={{ label: "Select Station", value: 0 }}
-                onChange={e => {
-                            this.setState({
-                            name: e.label,
-                            ID: e.value
-                            });
-                         }}
+                
                 />
                 </OptionWrap>
                        <Link to="/"> <FormButton type='submit'>Continue</FormButton> </Link>

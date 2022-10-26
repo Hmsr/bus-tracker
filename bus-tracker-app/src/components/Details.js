@@ -19,11 +19,10 @@ export default function Details(props) {
         postBusArrived(postBody);
     }
 
-    function handleRouteClick() {
+    function handleRouteClick(e) {
       setRouteVisible(prevVisible => (
           !prevVisible)
-      )
-      ;
+      );
     }
 
     function handleDepartedClick() {
@@ -62,26 +61,28 @@ export default function Details(props) {
     const routeList = props.stationList.map(station => {
       return (
        <div >
-      <input id={station.stationID}type="checkbox" name={station.name} value={station.stationID} label={station.name}/>
+      <input id={station.stationID + "-" + station.name}type="checkbox" name={station.name} value={station.stationID} label={station.name}/>
       <label for={station.stationID}>{station.name}</label>
       </div> 
       )
     }
     )
 
-    
+    function handleRoute(e) {
+      console.log(e)
+    }
 
     return (
     <div className="card--details">
     <img className="details--icon" src={`images/${busIcon}`}  />
     <p>BusID: {props.bus.busID}</p>
-    <p>Occupancy: {props.bus.occupancy}</p>    
+    <p>Occupancy: {props.bus.occupancy}%</p>    
     <p>ETA: {props.bus.eta}</p>
     <p>Current Location : {props.bus.busLastStop}</p>
 
     <p>Route: {props.bus.disruptionEnd}</p>
     {routeVisible ? <button className="details--button" onClick={handleRouteClick} >Change Route</button> : <div> <div className="routeChangeList">
-      <form>{routeList}</form>
+      <form onChange={handleRoute}>{routeList}</form>
        
        </div>
        <button onClick={handleRouteClick} className="details--button">Submit Route</button>
