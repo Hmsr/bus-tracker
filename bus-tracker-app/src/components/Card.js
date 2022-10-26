@@ -24,6 +24,7 @@ export default function Card(props){
         <div className="card" onClick={handleClick}>
            
            <img className="card--occupancy--icon" src={`images/${busIcon}`}  />
+            <p>Bus: {props.bus.busID}</p>
             <p>Route: {props.bus.disruptionEnd}</p>
             <p>ETA: {props.bus.eta}</p>
             <p>Occupancy: {props.bus.occupancy}%</p>
