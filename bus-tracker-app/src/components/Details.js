@@ -80,10 +80,10 @@ export default function Details(props) {
     return (
     <div className="card--details">
     <img className="details--icon" src={`images/${busIcon}`}  />
-    <p>BusID: {props.bus.busID}</p>
-    <p>Occupancy: {props.bus.occupancy}%</p>    
+    <p>Bus: {props.bus.busID}</p>
     <p>ETA: {convertTime(props.bus.eta)}</p>
-    <p>Current Location : {props.bus.busLastStop}</p>
+    <p>Occupancy: {props.bus.occupancy}%</p>    
+    <p>Location : {props.bus.busLastStop}</p>
 
     <p>Route: {props.bus.disruptionEnd}</p>
     {routeVisible ? <button className="details--button" onClick={handleRouteClick} >Change Route</button> : <div> <div className="routeChangeList">
